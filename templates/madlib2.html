@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %}Your MadLib!{% endblock %}
+
+{% block content %}
+There once was a <i> {{ color }} {{ noun }} </i> singing in Sephora.
+When <i> {{ person }} </i> went to eat it up, it burst into tears in a totally
+<i> {{ adjective }}</i> way. Haha. 
+
+It was 
+{% for compliment in compliments %}
+    {% if compliments | length == 1 %}
+        {{ compliment }}!
+    {% elif compliment == compliments[-1] %}
+        and {{ compliment }}! 
+    {% else %}
+        {{ compliment }}, 
+{% endif %}
+{% endfor %}
+{% endblock %}

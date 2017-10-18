@@ -1,0 +1,22 @@
+body {
+    font-family: sans-serif;
+    color: purple;
+
+}
+
+footer {
+    font-size: 8px;
+}
+
+.test {
+    color: green;
+}
+
+i {
+    font-family: monospace;
+}
+
+li {
+    color: #31E15B;
+    font-size: 80px;
+}

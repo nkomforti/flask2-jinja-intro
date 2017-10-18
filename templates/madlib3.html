@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %}Your MadLib!{% endblock %}
+
+{% block content %}
+Once upon a time, there once was a {{ adjective }} {{ person }} eating a {{ color }} {{ noun }}.
+
+The End.
+
+It was 
+{% for compliment in compliments %}
+    {% if compliments | length == 1 %}
+        {{ compliment }}!
+    {% elif compliment == compliments[-1] %}
+        and {{ compliment }}! 
+    {% else %}
+        {{ compliment }}, 
+{% endif %}
+{% endfor %}
+{% endblock %}

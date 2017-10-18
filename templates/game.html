@@ -1,3 +1,4 @@
+<!-- <!doctype html>
 <html>
 <head>
     <title>Game time!</title>
@@ -10,37 +11,83 @@
             <option value="George Bush">a president</option>
             <option value="Oprah">a talk show host</option>
             <option value="Beyonce">a queen bee</option>
-        </select><br>
+        </select><br><br>
 
         Select a color:
         <select name="color">
             <option value="blue">democratic color</option>
             <option value="puce">puke</option>
             <option value="yellow">pus</option>
-        </select><br>
+        </select><br><br>
 
         Select a noun:
         <select name="noun">
             <option value="San Francisco">San Francisco</option>
             <option value="cat">cat</option>
             <option value="fire truck">vehicle</option>
-        </select><br>
+        </select><br><br>
 
         Select an adjective:
         <select name="adjective">
             <option value="magnificent">your mom is...</option>
             <option value="hairy">your back</option>
             <option value="pretty">Gal Gadot</option>
-        </select><br>
+        </select><br><br>
 
 
-        Select compliments: 
+        Select compliments: <br>
         {% for compliment in AWESOMENESS %}
-            <input type="checkbox" name="compliment" value="{{ compliment }}"> {{compliment}}
+            <input type="checkbox" name="compliment" value="{{ compliment }}"> {{compliment}}<br>
         {% endfor %}
 
-        <br>
+        <br><br>
         <input type="submit" value="MadLib This!">
     </form>
 </body>
 </html>
+ -->
+
+{% extends 'base.html' %}
+{% block title %}Game time!{% endblock %}
+
+{% block content %} 
+    <h1>Let's play MadLibs!</h1>
+    <form action="/madlib" method="POST">
+        Select a person:
+        <select name="person" class="test">
+            <option value="George Bush">a president</option>
+            <option value="Oprah">a talk show host</option>
+            <option value="Beyonce">a queen bee</option>
+        </select><br><br>
+
+        Select a color:
+        <select name="color" class="test">
+            <option value="blue">democratic color</option>
+            <option value="puce">puke</option>
+            <option value="yellow">pus</option>
+        </select><br><br>
+
+        Select a noun:
+        <select name="noun" class="test">
+            <option value="San Francisco">San Francisco</option>
+            <option value="cat">cat</option>
+            <option value="fire truck">vehicle</option>
+        </select><br><br>
+
+        Select an adjective:
+        <select name="adjective" class="test">
+            <option value="magnificent">your mom is...</option>
+            <option value="hairy">your back</option>
+            <option value="pretty">Gal Gadot</option>
+        </select><br><br>
+
+
+        Select compliments: <br>
+        {% for compliment in AWESOMENESS %}
+            <input type="checkbox" name="compliment" value="{{ compliment }}"> {{compliment}}<br>
+        {% endfor %}
+
+        <br><br>
+        <input type="submit" value="MadLib This!">
+    </form>
+{% endblock %}

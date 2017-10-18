@@ -1,3 +1,4 @@
+<!-- <!doctype html>
 <html>
 <head>
     <title>Your MadLib!</title>
@@ -7,7 +8,7 @@ There once was a {{ color }} {{ noun }} sitting in the Hackbright Lab.
 When {{ person }} went to pick it up, it burst into flames in a totally
 {{ adjective }} way. 
 
-<!-- It was {{ compliments | join(", ") }}. -->
+It was {{ compliments | join(", ") }}. DONT INCLUDE THIS LINE
 
 It was 
 {% for compliment in compliments %}
@@ -20,4 +21,24 @@ It was
 {% endif %}
 {% endfor %}
 </body>
-</html>
+</html> -->
+
+{% extends 'base.html' %}
+{% block title %}Your MadLib!{% endblock %}
+
+{% block content %}
+There once was a <i>{{ color }}</i> <i>{{ noun }}</i> sitting in the Hackbright Lab.
+When <i>{{ person }}</i> went to pick it up, it burst into flames in a totally
+<i>{{ adjective }}</i> way. 
+
+It was 
+{% for compliment in compliments %}
+    {% if compliments | length == 1 %}
+        {{ compliment }}!
+    {% elif compliment == compliments[-1] %}
+        and {{ compliment }}! 
+    {% else %}
+        {{ compliment }}, 
+{% endif %}
+{% endfor %}
+{% endblock %}
