@@ -32,6 +32,14 @@
             <option value="hairy">your back</option>
             <option value="pretty">Gal Gadot</option>
         </select><br>
+
+
+        Select compliments: 
+        {% for compliment in AWESOMENESS %}
+            <input type="checkbox" name="compliment" value="{{ compliment }}"> {{compliment}}
+        {% endfor %}
+
+        <br>
         <input type="submit" value="MadLib This!">
     </form>
 </body>

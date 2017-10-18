@@ -5,6 +5,19 @@
 <body>
 There once was a {{ color }} {{ noun }} sitting in the Hackbright Lab.
 When {{ person }} went to pick it up, it burst into flames in a totally
-{{ adjective }} way.
+{{ adjective }} way. 
+
+<!-- It was {{ compliments | join(", ") }}. -->
+
+It was 
+{% for compliment in compliments %}
+    {% if compliments | length == 1 %}
+        {{ compliment }}!
+    {% elif compliment == compliments[-1] %}
+        and {{ compliment }}! 
+    {% else %}
+        {{ compliment }}, 
+{% endif %}
+{% endfor %}
 </body>
 </html>

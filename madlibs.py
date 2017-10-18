@@ -53,7 +53,7 @@ def show_madlib_form():
         return render_template("goodbye.html", player=player)
 
     else:
-        return render_template("game.html")
+        return render_template("game.html", AWESOMENESS=AWESOMENESS)
 
 
 @app.route('/madlib')
@@ -65,8 +65,11 @@ def show_madlib():
     color = request.args.get("color")
     adjective = request.args.get("adjective")
 
+    # import pdb; pdb.set_trace()
+    compliments = request.args.getlist("compliment")
+
     return render_template("madlib.html", person=person, noun=noun,
-                           color=color, adjective=adjective)
+                           color=color, adjective=adjective, compliments=compliments)
 
 
 if __name__ == '__main__':
